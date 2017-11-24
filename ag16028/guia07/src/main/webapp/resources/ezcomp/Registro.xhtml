@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ezcomp="http://xmlns.jcp.org/jsf/composite/ezcomp">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="Nombre" type="java.lang.String"/>
+        <cc:attribute name="Activo" type="java.lang.String"/>
+        <cc:attribute name="Descripcion" type="java.lang.String"/>
+        <cc:attribute name="Registro" type="java.lang.String"/>
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <p:outputLabel value="#{cc.attrs.Registro}" />
+        <p:growl id="gro" showDetail="true" sticky="true"/>    
+        <p:panelGrid columns="2">
+            <p:outputLabel value="#{cc.attrs.Nombre}" />
+            <p:inputText value="#{rolBean.rol.nombre}" />
+
+            <p:outputLabel value="#{cc.attrs.Activo} " />
+            <p:selectBooleanCheckbox value="#{rolBean.rol.activo}" />
+            <p:outputLabel value="#{cc.attrs.Descripcion} " />
+            <p:inputTextarea rows="6" cols="33" value="#{rolBean.rol.descripcion}"/>
+            
+        </p:panelGrid>
+    </cc:implementation>
+</html>
